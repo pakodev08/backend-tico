@@ -20,9 +20,12 @@ app.use(express.static("public"));
 app.use("/api/numbers", router);
 app.use("/api/users", routerUser);
 
-app.get("*", (req, res) => {
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
 
 // Solo para desarrollo local
 if (process.env.NODE_ENV !== 'production') {
