@@ -22,17 +22,18 @@ app.use("/api/users", routerUser);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Solo para desarrollo local
-if (process.env.NODE_ENV !== 'production') {
-  const PORT = process.env.PORT || 4005;
-  app.listen(PORT, () => {
+// if (process.env.NODE_ENV !== 'production') {
+//   const PORT = process.env.PORT || 4005;
+  
+// }
+app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
   });
-}
 // Exportar para Vercel
 export default app;
 
