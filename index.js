@@ -26,7 +26,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-
 // Solo para desarrollo local
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 4005;

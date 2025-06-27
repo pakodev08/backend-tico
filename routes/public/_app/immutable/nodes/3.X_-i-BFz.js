@@ -1,4 +1,4 @@
-import{t as V,a as h}from"../chunks/B6OokEob.js";import{p as C,f as D,a as k,s as i,b as a,c as F,g as r}from"../chunks/CpfzdGte.js";import{p as e}from"../chunks/CHEU7yCJ.js";import{o as L}from"../chunks/DWpeO2Yj.js";import{H as M,B as N,F as O}from"../chunks/BJHlE6gX.js";var P=V("<!> <!> <!>",1);function w(m,p){C(p,!0);let c="10 de Enero",d=`TIGRITO 175 CC 2024
+import{t as V,a as h}from"../chunks/B6OokEob.js";import{p as C,f as D,a as k,s as i,b as a,c as F,g as r}from"../chunks/CpfzdGte.js";import{p as e}from"../chunks/CHEU7yCJ.js";import{o as L}from"../chunks/DWpeO2Yj.js";import{H as M,B as N,F as O}from"../chunks/23WPNpoF.js";var P=V("<!> <!> <!>",1);function w(m,p){C(p,!0);let c="10 de Enero",d=`TIGRITO 175 CC 2024
 Viene acompañada de: 
 CASCO CERTIFIED 
 MALETA VIAJERA
