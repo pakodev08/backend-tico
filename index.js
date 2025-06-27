@@ -36,6 +36,7 @@ if (process.env.NODE_ENV !== 'production') {
 // Exportar para Vercel
 export default app;
 
+
 // import express from "express";
 // import "dotenv/config";
 // import { connectDB } from "./mongoDB/mongoconnect.js";
