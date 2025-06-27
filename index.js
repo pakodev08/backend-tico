@@ -33,7 +33,6 @@ if (process.env.NODE_ENV !== 'production') {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
   });
 }
-
 // Exportar para Vercel
 export default app;
 
