@@ -1,5 +1,5 @@
-import crypto from 'crypto';
-import { Number } from '../mongoDB/Schemas/numbers-generator.js'
+import crypto from "crypto";
+import { Number } from "../mongoDB/Schemas/numbers-generator.js"
 
 const generarNumberos = async (req, res) =>
 {
