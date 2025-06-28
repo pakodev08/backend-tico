@@ -1,5 +1,5 @@
-import crypto from "crypto";
-import { Number } from "../mongoDB/Schemas/numbers-generator.js"
+import crypto from 'crypto';
+import { Number } from '../mongoDB/Schemas/numbers-generator.js';
 
 const generarNumberos = async (req, res) =>
 {
@@ -10,7 +10,7 @@ const generarNumberos = async (req, res) =>
 
     if (existingNumbers.length > 0) {
       return res.json({
-        message: 'Los números ya han sido generados previamente',
+        message: `Los números ya han sido generados previamente`,
         numbers: existingNumbers,
       });
     }
@@ -28,15 +28,15 @@ const generarNumberos = async (req, res) =>
     await Number.insertMany(numbersDB)
 
     res.json({
-      message: 'Números generados e insertados correctamente',
+      message: `Números generados e insertados correctamente`,
       numbersDB
 
     })
 
   } catch (error) {
-    console.error('Error al generar números:', error);
+    console.error(`Error al generar números:`, error);
     res.status(500).json({
-      message: 'Error al generar números',
+      message: `Error al generar números`,
       error: error.message
     });
   }

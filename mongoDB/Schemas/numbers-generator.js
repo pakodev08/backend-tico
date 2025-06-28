@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose';
 // import crypto from 'crypto';
 
 
@@ -16,7 +16,7 @@ const numberSchema = new Schema({
     }
 })
     
-const Number = model('Numeros', numberSchema);
+const Number = model(`Numeros`, numberSchema);
 
 export {
     Number,

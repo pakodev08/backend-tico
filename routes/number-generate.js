@@ -1,9 +1,9 @@
-import { Router } from "express";
-import { generarNumberos } from "../controllers/numbers-generated.js";
+import { Router } from 'express';
+import { generarNumberos } from '../controllers/numbers-generated.js';
 
 const router = Router();
 
-router.get('/', generarNumberos)
+router.get(`/`, generarNumberos)
 
 export {
     router
