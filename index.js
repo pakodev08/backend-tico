@@ -1,11 +1,12 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import { connectDB } from './mongoDB/mongoconnect.js';
-import cors from 'cors';
-import { router } from './routes/number-generate.js';
-import { routerUser } from './routes/user.js';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import { connectDB } from "./mongoDB/mongoconnect.js";
+import cors from "cors";
+import { router } from "./routes/number-generate.js";
+import { routerUser } from "./routes/user.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +22,27 @@ app.use(cors());
 
 app.use(`/api/numbers`, router);
 app.use(`/api/users`, routerUser);
+
+app.get(`/api/oldusers`, async (req, res) => {
+  try {
+    // Opción 1: Usando mongoose.connection (si usas Mongoose)
+    const collection = mongoose.connection.db.collection("oldusers");
+    const users = await collection.find({}).toArray(); // Agregar .toArray()
+    
+    res.json({
+      success: true,
+      data: users,
+      count: users.length
+    });
+  } catch (error) {
+    console.error("Error al obtener oldusers:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error al obtener oldusers",
+      error: error.message
+    });
+  }
+});
 
 app.use(express.static(path.join(__dirname, `public`)));
 
