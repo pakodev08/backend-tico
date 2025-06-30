@@ -15,9 +15,9 @@ const PORT = process.env.PORT || 4005;
 dotenv.config();
 const app = express();
 
-connectDB();
 app.use(express.json());
 app.use(cors());
+connectDB();
 // app.use(express.static(`public`));
 
 app.use(`/api/numbers`, router);
