@@ -5,23 +5,31 @@ import { connectDB } from "./mongoDB/mongoconnect.js";
 import cors from "cors";
 import { router } from "./routes/number-generate.js";
 import { routerUser } from "./routes/user.js";
-import path from "path";
-import { fileURLToPath } from "url";
+import { routerGuerra } from "./routes/userGuerra.js";
+import {numbersGuerra} from "./routes/numbers-guerra.js"
+// import path from "path";
+// import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 4005;
 
 dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ["https://frontend-rifa-tico.vercel.app", "https://albertorifas.com",  "https://www.albertorifas.com"],
+  credentials: true
+}));
 connectDB();
 // app.use(express.static(`public`));
 
 app.use(`/api/numbers`, router);
 app.use(`/api/users`, routerUser);
+
+app.use(`/guerra/users`, routerGuerra);
+app.use(`/guerra/numbers`, numbersGuerra);
 
 app.get(`/api/oldusers`, async (req, res) => {
   try {
@@ -44,11 +52,11 @@ app.get(`/api/oldusers`, async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, `public`)));
+// app.use(express.static(path.join(__dirname, `public`)));
 
-app.get(`*`, (req, res) => {
-  res.sendFile(path.join(__dirname, `public`, `index.html`));
-});
+// app.get(`*`, (req, res) => {
+//   res.sendFile(path.join(__dirname, `public`, `index.html`));
+// });
 
 // Solo para desarrollo local
 // if (process.env.NODE_ENV !== 'production') {

@@ -1,11 +1,13 @@
-import { User } from "../mongoDB/Schemas/users.js";
-import { Number } from "../mongoDB/Schemas/numbers-generator.js";
-const createUser = async (req, res) => {
+import {UserGuerra} from "../mongoDB/Schemas/usersGuerra.js"
+import {NumberBonoGuerra} from "../mongoDB/Schemas/generator-numbers-dos.js"
+
+
+const createUserGuerra = async (req, res) => {
   try {
     const { name, cedula, tlf, ref, numbers } = req.body;
 
     // Buscar si ya existe un usuario con esa cédula
-    let existingUser = await User.findOne({ cedula });
+    let existingUser = await UserGuerra.findOne({ cedula });
 
     if (existingUser) {
       // Si el usuario ya existe, solo agregamos los números y referencia
@@ -16,7 +18,7 @@ const createUser = async (req, res) => {
       // Eliminar los números de la colección Number
       if (numbers && numbers.length > 0) {
         const toDelete = numbers.map((numberId) => numberId.id);
-        await Number.deleteMany({
+        await NumberBonoGuerra.deleteMany({
           id: { $in: toDelete },
         });
       }
@@ -33,7 +35,7 @@ const createUser = async (req, res) => {
       });
     }
     // Si no existe, crear un nuevo usuario
-    const newUser = new User({
+    const newUser = new UserGuerra({
       name,
       cedula,
       tlf,
@@ -46,7 +48,7 @@ const createUser = async (req, res) => {
     // Eliminar los números de la colección Number
     if (numbers && numbers.length > 0) {
       const toDelete = numbers.map((numberId) => numberId.id);
-      await Number.deleteMany({
+      await NumberBonoGuerra.deleteMany({
         id: { $in: toDelete },
       });
     }
@@ -74,9 +76,9 @@ const deleteUser = async (req, res) => {
   const { id } = req.params;
   const { numbers } = req.body;
   try {
-    await Number.insertMany(numbers);
+    await NumberBonoGuerra.insertMany(numbers);
     console.log(`Se agregaron ${numbers.length} números a la lista`);
-    const user = await User.findByIdAndDelete(id);
+    const user = await UserGuerra.findByIdAndDelete(id);
 
     res.json({
       message: "Usuario eliminado",
@@ -86,10 +88,9 @@ const deleteUser = async (req, res) => {
     console.log(error);
   }
 };
-
 const callAllUsers = async (req, res) => {
   try {
-    const user = await User.find();
+    const user = await UserGuerra.find();
     res.json({
       user,
     });
@@ -97,4 +98,4 @@ const callAllUsers = async (req, res) => {
     console.log(error);
   }
 };
-export { createUser, deleteUser, callAllUsers };
+export { createUserGuerra, deleteUser, callAllUsers };
