@@ -19,7 +19,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: ["https://frontend-rifa-tico.vercel.app", "https://albertorifas.com",  "https://www.albertorifas.com"],
+  origin: ["https://frontend-rifa-tico.vercel.app", "https://albertorifas.com",  "https://www.albertorifas.com", "https://ganador-rifa-tico.vercel.app"],
   credentials: true
 }));
 connectDB();
