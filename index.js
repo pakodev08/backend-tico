@@ -7,6 +7,7 @@ import { router } from "./routes/number-generate.js";
 import { routerUser } from "./routes/user.js";
 import { routerGuerra } from "./routes/userGuerra.js";
 import {numbersGuerra} from "./routes/numbers-guerra.js"
+import {exposeNumbersRouter} from "./routes/exposeNumbers.js"
 // import path from "path";
 // import { fileURLToPath } from "url";
 
