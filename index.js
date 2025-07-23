@@ -19,7 +19,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: ["https://frontend-rifa-tico.vercel.app", "https://albertorifas.com",  "https://www.albertorifas.com", "https://ganador-rifa-tico.vercel.app"],
+  origin: ["https://frontend-rifa-tico.vercel.app", "https://albertorifas.com",  "https://www.albertorifas.com", "https://ganador-rifa-tico.vercel.app", "http://localhost:5173"],
   credentials: true
 }));
 connectDB();
@@ -30,6 +30,7 @@ app.use(`/api/users`, routerUser);
 
 app.use(`/guerra/users`, routerGuerra);
 app.use(`/guerra/numbers`, numbersGuerra);
+app.use(`/api/expose`, exposeNumbersRouter)
 
 app.get(`/api/oldusers`, async (req, res) => {
   try {
