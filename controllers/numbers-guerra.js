@@ -14,7 +14,7 @@ const guerraNumbersGenerate = async (req, res) =>
         numbers: existingNumbers,
       });
     }
-    let numberToGenerate = 1000
+    let numberToGenerate = 999
     let numbersDB = []
     for (let i = 0; i <= numberToGenerate; i++) {
       let numberInfo = {
